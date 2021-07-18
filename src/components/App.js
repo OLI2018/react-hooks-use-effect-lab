@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Question from "./Question";
 import quiz from "../data/quiz";
@@ -6,6 +7,7 @@ function App() {
   const [questions, setQuestions] = useState(quiz);
   const [currentQuestionId, setCurrentQuestion] = useState(1);
   const [score, setScore] = useState(0);
+
   const currentQuestion = questions.find((q) => q.id === currentQuestionId);
 
   function handleQuestionAnswered(correct) {
@@ -23,10 +25,7 @@ function App() {
     <main>
       <section>
         {currentQuestion ? (
-          <Question
-            question={currentQuestion}
-            onAnswered={handleQuestionAnswered}
-          />
+          <Question question={currentQuestion} onAnswered={handleQuestionAnswered}/>
         ) : (
           <>
             <h1>Game Over</h1>
